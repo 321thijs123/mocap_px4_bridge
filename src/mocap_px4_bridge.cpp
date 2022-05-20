@@ -57,6 +57,8 @@ void MocapPX4Bridge::poseCallback(const geometry_msgs::msg::PoseStamped::UniqueP
 	odomMsg.y = -poseMsg->pose.position.y;
 	odomMsg.z = -poseMsg->pose.position.z;
 
+	odomMsg.q[0] = std::nanf("0");
+
 	// odomMsg.q[0] = -poseMsg->pose.orientation.w;	// X = -W
 	// odomMsg.q[1] = poseMsg->pose.orientation.z;		// Y = Z
 	// odomMsg.q[2] = -poseMsg->pose.orientation.y;	// Z = -Y
