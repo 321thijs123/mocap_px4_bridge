@@ -21,7 +21,7 @@ class MocapPX4Bridge : public rclcpp::Node
 public:
 	MocapPX4Bridge() : Node("mocap_px4_bridge") {
 		poseSub = this->create_subscription<geometry_msgs::msg::PoseStamped>("/Robot_1/pose", 10, std::bind(&MocapPX4Bridge::poseCallback, this, _1));
-		odomPub = this->create_publisher<px4_msgs::msg::VehicleOdometry>("/fmu/vehicle_visual_odometry/in", 10);
+		odomPub = this->create_publisher<px4_msgs::msg::VehicleOdometry>("/fmu/in/vehicle_visual_odometry", 10);
 	}
 
 private:
